@@ -5,35 +5,35 @@ const generateMarkdown = require('./utils/generateMarkdown');
 
 //Create an array of questions for user input
 const questions = [
-    {   // Project Name
+    {   // Project Title
         type: 'input',
-        message: "What will be the title of your project?",
+        message: "Enter project title",
         name: 'title',
         validate: function (title) {
             if (title) {
-                return true;
+            return true;
             }
             return "A README needs a project title";
         },
     },
     {   // Project description
         type: 'input',
-        message: "Describe your application",
+        message: "Write a description of your project",
         name: 'description',
         validate: function (description) {
             if (description) {
-                return true;
+            return true;
             }
             return "A README needs a description";
         },
     },
     {   // Installation instructions
         type: 'input',
-        message: "What are the installation instructions for your project?",
+        message: "What are the installation instructions?",
         name: 'installation',
         validate: function (install) {
             if (install) {
-                return true;
+            return true;
             }
             return "A README needs to provide steps on how to install the project";
         },
@@ -44,7 +44,7 @@ const questions = [
         name: 'usage',
         validate: function (use) {
             if (use) {
-                return true;
+            return true;
             }
             return "A README needs instructions on how to use the project";
         },
@@ -55,18 +55,18 @@ const questions = [
         name: 'contribution',
         validate: function (contribute) {
             if (contribute) {
-                return true;
+            return true;
             }
             return "A README needs contribution instructions";
         },
     },
-    {   // Test instructions
+    {   // Test instructions if needed
         type: 'input',
         name: 'test',
-        message: "Are there any tests for your contributors to follow?",
+        message: "If applicable, provide tests for your contributors to follow",
         validate: function (testing) {
             if (testing) {
-                return true;
+            return true;
             }
             return "A README needs instructions on how to use the project";
         },
@@ -80,33 +80,38 @@ const questions = [
     {   // Github username
         type: 'input',
         name: 'username',
-        message: "What is your GitHub Username?",
+        message: "Enter GitHub username",
         validate: function (username) {
             if (username) {
-                return true;
+            return true;
             }
             return "Please enter your GitHub username";
         },
     },
-    {   // User's email
+    {   // User email
         type: 'input',
         name: 'email',
-        message: "What is your email?",
+        message: "Enter email",
         validate: function (email) {
             let pass = email.match(/\S+@\S+\.\S+/g);
             if (pass) {
-                return true;
+            return true;
             }
             return "Please enter a valid email";
         },
     },
 ];
 
-//Create a function to write README file
-function writeToFile(fileName, data) { }
+// Function to write README file
+function writeToFile(data) {
+    const generateReadme = generateMarkdown(data);
+    fs.writeFile("README.md", generateReadme, (err) => err ? console.log(err) : console.log("README.md has been generated"))
+};
 
-//Create a function to initialize app
-function init() { }
-
-//Function call to initialize app
-init();
+// Function to initialize app
+function init() {
+    inquirer.prompt(questions)
+    .then((data) => {
+        writeToFile(data)
+    })
+}
