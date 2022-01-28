@@ -44,8 +44,6 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  <h1 align="center">${data.title}</h1>
-    
   ${renderLicenseBadge(data.license)}
   <br>
   
@@ -82,7 +80,6 @@ function generateMarkdown(data) {
   GitHub: [${data.username}](https://github.com/${data.username})<br />
   <br />
   Email: ${data.email}<br /><br />
-  This README was generated with by [README-generator](https://github.com/jack-ie/readme-generator
 `;
 }
 

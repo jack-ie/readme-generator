@@ -12,8 +12,9 @@ const questions = [
         validate: function (title) {
             if (title) {
                 return true;
-            }return "A README needs a project title";
-        },},
+            } return "A README needs a project title";
+        },
+    },
     {   // Project description
         type: 'input',
         message: "Write a description of your project",
@@ -21,8 +22,9 @@ const questions = [
         validate: function (description) {
             if (description) {
                 return true;
-            }return "A README needs a description";
-        },},
+            } return "A README needs a description";
+        },
+    },
     {   // Installation instructions
         type: 'input',
         message: "What are the installation instructions?",
@@ -30,8 +32,9 @@ const questions = [
         validate: function (install) {
             if (install) {
                 return true;
-            }return "A README needs to provide steps on how to install the project";
-        },},
+            } return "A README needs to provide steps on how to install the project";
+        },
+    },
     {   // Application usage
         type: 'input',
         message: "What is the usage of your application?",
@@ -39,8 +42,9 @@ const questions = [
         validate: function (use) {
             if (use) {
                 return true;
-            }return "A README needs instructions on how to use the project";
-        },},
+            } return "A README needs instructions on how to use the project";
+        },
+    },
     {   // Contribution directions
         type: 'input',
         message: "How can contributions be added to this project?",
@@ -48,8 +52,9 @@ const questions = [
         validate: function (contribute) {
             if (contribute) {
                 return true;
-            }return "A README needs contribution instructions";
-        },},
+            } return "A README needs contribution instructions";
+        },
+    },
     {   // Test instructions if needed
         type: 'input',
         name: 'test',
@@ -57,8 +62,9 @@ const questions = [
         validate: function (testing) {
             if (testing) {
                 return true;
-            }return "A README needs instructions on how to use the project";
-        },},
+            } return "A README needs instructions on how to use the project";
+        },
+    },
     {   // License options
         type: 'list',
         name: 'license',
@@ -72,8 +78,9 @@ const questions = [
         validate: function (username) {
             if (username) {
                 return true;
-            }return "Please enter your GitHub username";
-        },},
+            } return "Please enter your GitHub username";
+        },
+    },
     {   // User email
         type: 'input',
         name: 'email',
@@ -82,8 +89,9 @@ const questions = [
             let pass = email.match(/\S+@\S+\.\S+/g);
             if (pass) {
                 return true;
-            }return "Please enter a valid email";
-        },},
+            } return "Please enter a valid email";
+        },
+    },
 ];
 
 // Function to write README file
@@ -96,7 +104,8 @@ function writeToFile(data) {
 function init() {
     inquirer.prompt(questions)
         .then((data) => {
-        writeToFile(data)
-    })};
+            writeToFile(data)
+        })
+};
 
 init();
