@@ -14,6 +14,46 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   return `# ${data.title}
 
+  <h1 align="center">${data.title}</h1>
+    
+  (https://img.shields.io/badge/license-${data.license}-blue.svg)<br />
+  
+  ## Description
+   ${data.description}
+  
+   ## Table of Contents
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  
+  ## Installation
+  ${data.installation}
+  
+  ## Usage
+  ${data.usage}
+  
+  ## License
+  (https://img.shields.io/badge/license-${data.license}-blue.svg)
+  <br />
+  This application is covered by the ${data.license}license. 
+  
+  ## Contributing
+  ${data.contributing}
+ 
+  ## Tests
+  ${data.tests}
+  
+  ## Questions
+  ${data.questions}<br />
+  <br />
+  Find me on GitHub: [${data.username}](https://github.com/${data.username})<br />
+  <br />
+  ✉️ Email me with any questions: ${data.email}<br /><br />
+  _This README was generated with by [README-generator](https://github.com/
 `;
 }
 
