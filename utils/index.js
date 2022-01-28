@@ -1,7 +1,7 @@
 //Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./generateMarkdown');
 
 //Create an array of questions for user input
 const questions = [
@@ -75,7 +75,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: "Choose a license:",
-        choices: ["MIT", "Apache 2.0", "BSD", "Unlicense", 'No License'],
+        choices: ['Apache 2.0', 'BSD', 'MIT',  'No License', 'Unlicense'],
     },
     {   // Github username
         type: 'input',
